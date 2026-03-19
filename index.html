@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>Poorna Sai Mukka | CS Engineer &amp; AI Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Poorna Sai Mukka — Computer Science Engineer from LPU. Java developer, AI/ML enthusiast, and data explorer. Explore my projects, skills, and journey." />
+    <meta name="keywords" content="Poorna Sai Mukka, portfolio, computer science, Java developer, AI, machine learning, LPU, Python, DSA" />
+    <meta name="author" content="Poorna Sai Mukka" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Poorna Sai Mukka | CS Engineer Portfolio" />
+    <meta property="og:description" content="AI enthusiast and Java developer showcasing projects, skills, and achievements." />
+    <meta property="og:type" content="website" />
+
+    <!-- Font Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts — loaded in <head> so fonts are ready before first paint -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Prevent FOUC: apply saved theme & background before React mounts -->
+    <script>
+      try {
+        var saved = localStorage.getItem('portfolio-theme');
+        if (saved) document.documentElement.setAttribute('data-theme', saved);
+      } catch(e) {}
+    </script>
+
+    <style>
+      /* FOUC prevention backgrounds */
+      html[data-theme="dark"],
+      html:not([data-theme="light"]) { background: #020010; }
+      html[data-theme="light"] { background: #f0f4ff; }
+
+      /* Ensure font fallback during load */
+      body { font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
