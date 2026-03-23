@@ -2,11 +2,6 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import * as THREE from 'three';
 
-// ============================================================
-// ENTRY SCENE — Cinematic 3D Tech Universe
-// Central glowing tech core + DNA helix + orbital rings +
-// neural particle cloud + shooting stars
-// ============================================================
 
 export default function EntryScene({ onEnter }) {
   const mountRef = useRef(null);
@@ -64,7 +59,7 @@ export default function EntryScene({ onEnter }) {
     const starPositions = new Float32Array(starCount * 3);
     const starSizes = new Float32Array(starCount);
     for (let i = 0; i < starCount; i++) {
-      starPositions[i * 3]     = (Math.random() - 0.5) * 400;
+      starPositions[i * 3] = (Math.random() - 0.5) * 400;
       starPositions[i * 3 + 1] = (Math.random() - 0.5) * 400;
       starPositions[i * 3 + 2] = (Math.random() - 0.5) * 400;
       starSizes[i] = Math.random() * 1.5 + 0.3;
@@ -141,10 +136,10 @@ export default function EntryScene({ onEnter }) {
     scene.add(ringGroup);
 
     const ringDefs = [
-      { radius: 4.5,  tube: 0.018, color: 0x00d4ff, rotX: Math.PI / 2,  rotY: 0,              opacity: 0.8 },
-      { radius: 5.5,  tube: 0.012, color: 0xa855f7, rotX: Math.PI / 4,  rotY: Math.PI / 6,    opacity: 0.6 },
-      { radius: 6.5,  tube: 0.010, color: 0xf72585, rotX: Math.PI / 6,  rotY: Math.PI / 3,    opacity: 0.5 },
-      { radius: 7.5,  tube: 0.008, color: 0x00ffaa, rotX: -Math.PI / 3, rotY: Math.PI / 5,    opacity: 0.4 },
+      { radius: 4.5, tube: 0.018, color: 0x00d4ff, rotX: Math.PI / 2, rotY: 0, opacity: 0.8 },
+      { radius: 5.5, tube: 0.012, color: 0xa855f7, rotX: Math.PI / 4, rotY: Math.PI / 6, opacity: 0.6 },
+      { radius: 6.5, tube: 0.010, color: 0xf72585, rotX: Math.PI / 6, rotY: Math.PI / 3, opacity: 0.5 },
+      { radius: 7.5, tube: 0.008, color: 0x00ffaa, rotX: -Math.PI / 3, rotY: Math.PI / 5, opacity: 0.4 },
     ];
 
     const rings = ringDefs.map(({ radius, tube, color, rotX, rotY, opacity }) => {
@@ -184,8 +179,8 @@ export default function EntryScene({ onEnter }) {
     scene.add(helixGroup);
 
     const helixSteps = 60;
-    const helixRadius  = 3.4;
-    const helixHeight  = 14;
+    const helixRadius = 3.4;
+    const helixHeight = 14;
 
     for (let i = 0; i < helixSteps; i++) {
       const t = i / helixSteps;
@@ -234,11 +229,11 @@ export default function EntryScene({ onEnter }) {
     for (let i = 0; i < neuralCount; i++) {
       const r = 8 + Math.random() * 6;
       const theta = Math.random() * Math.PI * 2;
-      const phi   = Math.acos(2 * Math.random() - 1);
+      const phi = Math.acos(2 * Math.random() - 1);
       const x = r * Math.sin(phi) * Math.cos(theta);
       const y = r * Math.sin(phi) * Math.sin(theta);
       const z = r * Math.cos(phi);
-      neuralPositions[i * 3]     = x;
+      neuralPositions[i * 3] = x;
       neuralPositions[i * 3 + 1] = y;
       neuralPositions[i * 3 + 2] = z;
       neuralData.push({ x, y, z, vx: (Math.random() - 0.5) * 0.01, vy: (Math.random() - 0.5) * 0.01, vz: (Math.random() - 0.5) * 0.01 });
@@ -263,12 +258,12 @@ export default function EntryScene({ onEnter }) {
     scene.add(floatGroup);
 
     const floatDefs = [
-      { geo: new THREE.TetrahedronGeometry(0.4),  color: 0x00d4ff, pos: [-9, 4, -3],  speed: 0.008 },
-      { geo: new THREE.OctahedronGeometry(0.35),  color: 0xa855f7, pos: [8, -3, -4],  speed: 0.012 },
-      { geo: new THREE.IcosahedronGeometry(0.3),  color: 0xf72585, pos: [-7, -4, 2],  speed: 0.010 },
-      { geo: new THREE.TetrahedronGeometry(0.28), color: 0x00ffaa, pos: [9, 5, -2],   speed: 0.007 },
-      { geo: new THREE.OctahedronGeometry(0.25),  color: 0xffd700, pos: [-5, 6, -5],  speed: 0.015 },
-      { geo: new THREE.IcosahedronGeometry(0.22), color: 0x00d4ff, pos: [6, 5.5, 3],  speed: 0.009 },
+      { geo: new THREE.TetrahedronGeometry(0.4), color: 0x00d4ff, pos: [-9, 4, -3], speed: 0.008 },
+      { geo: new THREE.OctahedronGeometry(0.35), color: 0xa855f7, pos: [8, -3, -4], speed: 0.012 },
+      { geo: new THREE.IcosahedronGeometry(0.3), color: 0xf72585, pos: [-7, -4, 2], speed: 0.010 },
+      { geo: new THREE.TetrahedronGeometry(0.28), color: 0x00ffaa, pos: [9, 5, -2], speed: 0.007 },
+      { geo: new THREE.OctahedronGeometry(0.25), color: 0xffd700, pos: [-5, 6, -5], speed: 0.015 },
+      { geo: new THREE.IcosahedronGeometry(0.22), color: 0x00d4ff, pos: [6, 5.5, 3], speed: 0.009 },
     ];
 
     const floatMeshes = floatDefs.map(({ geo, color, pos, speed }) => {
@@ -396,7 +391,7 @@ export default function EntryScene({ onEnter }) {
 
         // Build tail by shifting positions
         for (let i = c.tailLen - 1; i > 0; i--) {
-          c.pts[i * 3]     = c.pts[(i - 1) * 3];
+          c.pts[i * 3] = c.pts[(i - 1) * 3];
           c.pts[i * 3 + 1] = c.pts[(i - 1) * 3 + 1];
           c.pts[i * 3 + 2] = c.pts[(i - 1) * 3 + 2];
         }
@@ -601,10 +596,10 @@ export default function EntryScene({ onEnter }) {
 
       {/* Corner brackets */}
       {[
-        { pos: 'top-5 left-5',    borders: 'border-t-2 border-l-2' },
-        { pos: 'top-5 right-5',   borders: 'border-t-2 border-r-2' },
+        { pos: 'top-5 left-5', borders: 'border-t-2 border-l-2' },
+        { pos: 'top-5 right-5', borders: 'border-t-2 border-r-2' },
         { pos: 'bottom-5 left-5', borders: 'border-b-2 border-l-2' },
-        { pos: 'bottom-5 right-5',borders: 'border-b-2 border-r-2' },
+        { pos: 'bottom-5 right-5', borders: 'border-b-2 border-r-2' },
       ].map(({ pos, borders }, i) => (
         <div
           key={i}

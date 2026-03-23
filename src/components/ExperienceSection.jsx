@@ -130,34 +130,68 @@ function EducationCard({ edu, index }) {
 }
 
 function CertCard({ cert, index }) {
+  const CardWrapper = cert.link
+    ? ({ children }) => (
+        <a
+          href={cert.link}
+          target="_blank"
+          rel="noreferrer"
+          style={{ textDecoration: 'none', display: 'block' }}
+        >
+          {children}
+        </a>
+      )
+    : ({ children }) => <div>{children}</div>;
+
   return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -4, scale: 1.03 }}
-      className="glass-card p-4 flex items-center gap-3"
-      data-hover
-      style={{ borderColor: `${cert.color}40` }}
-    >
-      <div
-        className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0"
-        style={{ background: `${cert.color}22`, border: `1px solid ${cert.color}55` }}
+    <CardWrapper>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.1 }}
+        whileHover={{ y: -4, scale: 1.03 }}
+        className="glass-card p-4 flex items-center gap-3"
+        data-hover
+        style={{
+          borderColor: `${cert.color}40`,
+          cursor: cert.link ? 'pointer' : 'default',
+          boxShadow: cert.link ? `0 4px 20px ${cert.color}15` : undefined,
+        }}
       >
-        {cert.icon}
-      </div>
-      <div>
-        <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>
-          {cert.title}
-        </p>
-        <p className="text-xs" style={{ color: cert.color, fontFamily: 'Space Grotesk, sans-serif' }}>
-          {cert.issuer} · {cert.period}
-        </p>
-      </div>
-    </motion.div>
+        <div
+          className="w-10 h-10 rounded-lg flex items-center justify-center text-xl flex-shrink-0"
+          style={{ background: `${cert.color}22`, border: `1px solid ${cert.color}55` }}
+        >
+          {cert.icon}
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold" style={{ color: 'var(--text-primary)', fontFamily: 'Space Grotesk, sans-serif' }}>
+            {cert.title}
+          </p>
+          <p className="text-xs" style={{ color: cert.color, fontFamily: 'Space Grotesk, sans-serif' }}>
+            {cert.issuer} · {cert.period}
+          </p>
+        </div>
+        {cert.link && (
+          <span
+            className="text-[10px] font-bold px-2 py-0.5 rounded-full flex-shrink-0"
+            style={{
+              background: `${cert.color}22`,
+              border: `1px solid ${cert.color}55`,
+              color: cert.color,
+              fontFamily: 'Space Grotesk, sans-serif',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            View ↗
+          </span>
+        )}
+      </motion.div>
+    </CardWrapper>
   );
 }
+
 
 export default function ExperienceSection() {
   return (
